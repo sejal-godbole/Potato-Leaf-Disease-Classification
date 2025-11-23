@@ -1,135 +1,142 @@
-🥔 Potato Disease Classification: End-to-End Deep Learning Project
+# 🥔 Potato Disease Classification — End-to-End Deep Learning Project
 
-An end-to-end Deep Learning application capable of detecting Early Blight, Late Blight, and Healthy potato leaves with high accuracy. This system uses a Convolutional Neural Network (CNN) for classification, served via TensorFlow Serving (Docker), connected to a FastAPI backend, and displayed through a modern React frontend.
+An end-to-end Deep Learning application capable of detecting **Early Blight**, **Late Blight**, and **Healthy** potato leaves with high accuracy.  
+This system uses a **Convolutional Neural Network (CNN)** for classification, served via **TensorFlow Serving (Docker)**, connected to a **FastAPI backend**, and displayed through a modern **React frontend**.
 
-📸 Output Screenshots
+---
 
-Landing Page
+## 📸 Output Screenshots
 
-Prediction Result
-
+### **Landing Page**
 <img src="./screenshots/home_page.png" width="400">
 
+### **Prediction Result**
 <img src="./screenshots/prediction_result.png" width="400">
 
-Clean, user-friendly Drag & Drop Interface
+---
 
-Real-time classification with Confidence Score
+## 🚀 Project Architecture
 
-🚀 Project Architecture
+This project follows a **microservices architecture**:
 
-This project implements a scalable Microservices Architecture:
+- **Frontend (React + Tailwind + Vite):** User uploads leaf images  
+- **FastAPI Gateway:** Preprocesses the image & forwards request  
+- **TensorFlow Serving (Docker):** Hosts the trained model and performs inference  
 
-Frontend (React + Vite + Tailwind): A responsive UI for users to upload images.
+<img src="./screenshots/flowchart.png">
 
-API Gateway (FastAPI): Receives the image, performs preprocessing (resizing/normalization), and acts as a bridge.
+## 🛠️ Tech Stack
 
-Model Serving (Docker + TF Serving): A dedicated, production-grade server that hosts the trained .h5 model and handles inference requests.
+### **Machine Learning**
+* TensorFlow / Keras
+* Convolutional Neural Networks (CNN)
+* PlantVillage Dataset
 
-graph LR
-    A[User / Frontend] -- Image --> B[FastAPI Backend]
-    B -- Preprocessed Array --> C[Docker / TF Serving]
-    C -- Prediction --> B
-    B -- JSON Response --> A
+### **Backend**
+* FastAPI
+* Python
+* Uvicorn
+* TensorFlow Serving
 
+### **Frontend**
+* React.js
+* Vite
+* Tailwind CSS
+* Axios
 
-🛠️ Tech Stack
+### **Tools**
+* Docker
+* VS Code
+* Postman
+* Google Colab
 
-Deep Learning: TensorFlow, Keras, CNN (Convolutional Neural Networks)
+---
 
-Backend: FastAPI, Uvicorn, Python
+## 🧠 Model Performance
 
-Model Serving: TensorFlow Serving, Docker
+The model was trained on the **PlantVillage** dataset.
 
-Frontend: React.js, Vite, Tailwind CSS, Axios
+| Metric | Value |
+| :--- | :--- |
+| **Validation Accuracy** | ~98% |
+| **Classes** | Early Blight, Late Blight, Healthy |
 
-IDE/Tools: VS Code, Postman, Google Colab (for training)
+### Class Labels
+```json
+[
+    "Potato___Early_blight",
+    "Potato___Late_blight",
+    "Potato___healthy"
+]
 
-🧠 Model Performance
+---
 
-The model was trained on the PlantVillage Dataset.
+## 💻 Setup & Installation
 
-Accuracy: ~98% (on Validation Set)
+Follow these steps to run the full system locally.
 
-Classes:
+### 1. Prerequisites
+Ensure you have the following installed:
+* **Docker Desktop**
+* **Python 3.8+**
+* **Node.js** (Latest LTS)
+* **Git**
 
-Potato___Early_blight
-
-Potato___Late_blight
-
-Potato___healthy
-
-💻 Setup & Installation
-
-Follow these steps to run the project locally.
-
-1. Prerequisites
-
-Docker Desktop installed & running
-
-Python 3.8+
-
-Node.js & npm
-
-2. Clone the Repository
-
+### 2. Clone the Repository
+```bash
 git clone [https://github.com/YOUR_USERNAME/potato-disease-classification.git](https://github.com/YOUR_USERNAME/potato-disease-classification.git)
 cd potato-disease-classification
 
+### 3. Start TensorFlow Serving (Docker)
 
-3. Start TensorFlow Serving (Docker)
+Make sure your `models.config` file path is correct.
 
-This command pulls the TF Serving image and starts the model server on port 8501.
-(Ensure your models.config file path is correct in the command below)
-
+```bash
 docker run -t --rm -p 8501:8501 \
     -v C:/Resume_projects/Potato-disease-classification:/potato-disease-classification \
     tensorflow/serving \
     --model_config_file=/potato-disease-classification/models.config \
     --model_config_file_poll_wait_seconds=60
 
+### 4. Start the Backend (FastAPI)
 
-4. Start the Backend (FastAPI)
+Navigate to the API directory and install dependencies:
 
-Open a new terminal in the project root:
-
+```bash
 cd api
 pip install -r requirements.txt
 uvicorn main:app --reload
 
+### 5. Start the Frontend (React)
 
-Server runs at: http://localhost:8000
+Navigate to the frontend directory and install dependencies:
 
-5. Start the Frontend (React)
-
-Open a new terminal in the project root:
-
+```bash
 cd frontend
 npm install
 npm run dev
 
+## 📂 Project Structure
 
-UI runs at: http://localhost:5173
-
-📂 Project Structure
-
+```text
 potato-disease-classification/
-├── api/                   # FastAPI Backend
-│   ├── main.py            # API Routes & Logic
-│   └── requirements.txt   # Python Dependencies
-├── frontend/              # React Frontend
-│   ├── src/               # React Components & Styles
-│   └── tailwind.config.js # Styling Config
-├── saved_models/          # Trained Models
-│   └── 1/                 # Version 1 (SavedModel format)
-├── training/              # Jupyter Notebooks
+├── api/                     # FastAPI Backend
+│   ├── main.py              # API Routes & Logic
+│   └── requirements.txt     # Dependencies
+│
+├── frontend/                # React Frontend
+│   ├── src/                 # Components
+│   └── tailwind.config.js   # Styles
+│
+├── saved_models/            # Trained TF Models
+│   └── 1/                   # Version 1 (SavedModel format)
+│
+├── training/                # Jupyter Notebooks
 │   └── potato-disease.ipynb # Model Training Code
-├── models.config          # TF Serving Configuration
-└── README.md              # Project Documentation
+│
+├── models.config            # TF Serving Config
+└── README.md                # Documentation
 
+## 🤝 Acknowledgements
 
-🤝 Acknowledgements
-
-Dataset provided by PlantVillage.
-
-Project inspiration and guidance from the Codebasics Deep Learning series.
+* **Dataset:** PlantVillage
