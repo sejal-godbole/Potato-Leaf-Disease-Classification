@@ -62,14 +62,9 @@ The model was trained on the **PlantVillage** dataset.
 | **Classes** | Early Blight, Late Blight, Healthy |
 
 ### Class Labels
-```json
-[
-    "Potato___Early_blight",
-    "Potato___Late_blight",
-    "Potato___healthy"
-]
-
----
+- Potato___Early_blight
+- Potato___Late_blight
+- Potato___healthy
 
 ## 💻 Setup & Installation
 
@@ -83,7 +78,7 @@ Ensure you have the following installed:
 * **Git**
 
 ### 2. Clone the Repository
-```bash
+
 git clone [https://github.com/YOUR_USERNAME/potato-disease-classification.git](https://github.com/YOUR_USERNAME/potato-disease-classification.git)
 cd potato-disease-classification
 
@@ -91,7 +86,6 @@ cd potato-disease-classification
 
 Make sure your `models.config` file path is correct.
 
-```bash
 docker run -t --rm -p 8501:8501 \
     -v C:/Resume_projects/Potato-disease-classification:/potato-disease-classification \
     tensorflow/serving \
@@ -102,7 +96,6 @@ docker run -t --rm -p 8501:8501 \
 
 Navigate to the API directory and install dependencies:
 
-```bash
 cd api
 pip install -r requirements.txt
 uvicorn main:app --reload
@@ -111,14 +104,12 @@ uvicorn main:app --reload
 
 Navigate to the frontend directory and install dependencies:
 
-```bash
 cd frontend
 npm install
 npm run dev
 
 ## 📂 Project Structure
 
-```text
 potato-disease-classification/
 ├── api/                     # FastAPI Backend
 │   ├── main.py              # API Routes & Logic
