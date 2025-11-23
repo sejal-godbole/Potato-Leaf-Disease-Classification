@@ -14,6 +14,14 @@ The solution includes a trained model, a FastAPI backend server for inference, a
 
 ---
 
+## Output Screenshots
+
+### **Landing Page**
+<img src="./screenshots/home_page.png" width="400">
+
+### **Prediction Result**
+<img src="./screenshots/prediction_result.png" width="400">
+
 ## 🏗️ Architecture
 
 The system follows a microservices architecture where the frontend communicates with a FastAPI backend. The backend utilizes TensorFlow Serving (or a loaded `.h5` model) to perform inference on images.
