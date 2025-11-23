@@ -1,0 +1,17 @@
+tensorflow==2.12.0
+
+# Web / API
+fastapi
+uvicorn
+python-multipart
+
+# Imaging / ML
+pillow
+numpy
+matplotlib
+
+# Notebook (optional for training/experiments)
+jupyter
+
+# Optional: include if you plan to use pandas in notebooks or data preprocessing
+pandas

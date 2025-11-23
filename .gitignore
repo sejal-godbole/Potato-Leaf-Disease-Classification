@@ -1,0 +1,118 @@
+# ===== Python =====
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+pip-wheel-metadata/
+
+# Virtual environments
+.env
+.env.*.local
+.venv/
+venv/
+venv*/
+ENV/
+env/
+environment.yml
+
+# Pytest / coverage
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Logs
+*.log
+
+# Secrets / config
+*.pem
+*.key
+*.crt
+*.env
+secrets.json
+credentials.json
+
+# ===== TensorFlow / Model Artifacts =====
+# Saved models and large model files
+saved_models/
+saved_models/**
+
+# Any protobuf/model files (common for TF)
+*.pb
+fingerprint.pb
+keras_metadata.pb
+saved_model.pb
+
+# TensorFlow variables folder
+variables/
+variables/**
+
+# Keras/HDF5 model files
+*.h5
+*.keras
+
+# ===== Training data / generated datasets =====
+# Training dataset directories (large)
+training/
+training/**
+
+# ===== Node / Frontend =====
+# Node modules
+node_modules/
+frontend/node_modules/
+# Lock files (optional, include if you don't want to commit lockfiles)
+# package-lock.json
+# pnpm-lock.yaml
+# yarn.lock
+
+# Vite / build artifacts
+dist/
+build/
+frontend/dist/
+frontend/build/
+.vite/
+.vite/deps
+.cache/
+.parcel-cache/
+out/
+
+# npm debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor / OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+*.swp
+
+# Docker
+docker-compose.override.yml
+docker-compose.*.yml
+.env.docker
+
+# Misc
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+*.db
+*.class
